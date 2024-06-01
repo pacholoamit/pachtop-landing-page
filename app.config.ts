@@ -1,39 +1,36 @@
 // https://github.com/nuxt-themes/docus/blob/main/nuxt.schema.ts
 export default defineAppConfig({
   docus: {
-    title: 'Docus',
-    description: 'The best place to start your documentation.',
-    image: 'https://user-images.githubusercontent.com/904724/185365452-87b7ca7b-6030-4813-a2db-5e65c785bf88.png',
+    title: "Pachtop",
+    description: "Cross-platform (Linux, WIndows, MacOS) Desktop GUI system monitor, built with Rust & Tauri",
+    image: "https://github.com/pacholoamit/pachtop/blob/master/public/logo-only.png?raw=true",
     socials: {
-      twitter: 'nuxt_js',
-      github: 'nuxt-themes/docus',
-      nuxt: {
-        label: 'Nuxt',
-        icon: 'simple-icons:nuxtdotjs',
-        href: 'https://nuxt.com'
-      }
+      github: "pacholoamit/pachtop",
     },
     github: {
-      dir: '.starters/default/content',
-      branch: 'main',
-      repo: 'docus',
-      owner: 'nuxt-themes',
-      edit: true
+      dir: ".starters/default/content",
+      branch: "main",
+      repo: "docus",
+      owner: "nuxt-themes",
+      edit: true,
     },
     aside: {
       level: 0,
       collapsed: false,
-      exclude: []
+      exclude: [],
     },
     main: {
       padded: true,
-      fluid: true
+      fluid: true,
+    },
+    footer: {
+      credits: false,
     },
     header: {
       logo: true,
       showLinkIcon: true,
       exclude: [],
-      fluid: true
-    }
-  }
-})
+      fluid: true,
+    },
+  },
+});
