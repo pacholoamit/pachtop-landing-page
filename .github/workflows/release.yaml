@@ -6,7 +6,6 @@ on:
     branches:
       - master
 
-      
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,17 +26,16 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GHCR_PAT }}
 
-
-
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
         context: .
         push: true
         tags: |
-          ghcr.io/${{ github.repository_owner }}/pachtop-landing:latest
-          ghcr.io/${{ github.repository_owner }}/pachtop-landing:${{ github.sha }}
-        
+          ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:latest
+          ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:${{ github.sha }}
+        outputs: |
+          name=ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:${{ github.sha }}
 
     - name: Post image details
       run: echo "Docker image published successfully!"
