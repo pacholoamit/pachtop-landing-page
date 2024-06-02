@@ -2,6 +2,7 @@
 export default defineAppConfig({
   docus: {
     title: "Pachtop",
+    layout: "page",
     description: "Cross-platform (Linux, WIndows, MacOS) Desktop GUI system monitor, built with Rust & Tauri",
     image: "https://github.com/pacholoamit/pachtop/blob/master/public/logo-only.png?raw=true",
     socials: {
@@ -20,7 +21,7 @@ export default defineAppConfig({
       exclude: [],
     },
     main: {
-      padded: true,
+      padded: false,
       fluid: true,
     },
     footer: {
