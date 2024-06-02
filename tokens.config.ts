@@ -146,7 +146,7 @@ export default defineTheme({
         },
         fontSize: "{fontSize.sm}",
         gap: "{space.2}",
-        padding: "{space.2} {space.4}",
+        padding: "{space.5} {space.4}",
         backgroundColor: {
           initial: "{color.gray.200}",
           dark: "{color.gray.800}",
