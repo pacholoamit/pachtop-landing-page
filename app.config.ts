@@ -2,11 +2,16 @@
 export default defineAppConfig({
   docus: {
     title: "Pachtop",
-
-    description: "Cross-platform (Linux, WIndows, MacOS) Desktop GUI system monitor, built with Rust & Tauri",
-    image: "https://github.com/pacholoamit/pachtop/blob/master/public/logo-only.png?raw=true",
+    description: `Pachtop - a more modern system monitor. Pachtop is a lightweight, performant, and opensource system monitor that provides real-time monitoring of your system's performance, application monitoring, and detailed system information. Built with Rust and Tauri`,
+    url: "https://pachtop.com",
     socials: {
       github: "pacholoamit/pachtop",
+      youtube: "@pacholoamit",
+      linkedin: {
+        label: "Pacholo Amit",
+        icon: "linkedin",
+        href: "https://www.linkedin.com/in/pacholo-amit/",
+      },
     },
     github: {
       dir: ".starters/default/content",
