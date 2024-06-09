@@ -3,10 +3,25 @@ name: Build and Push Docker Image
 on:
   workflow_dispatch:
   push:
-    branches:
-      - master
+    tags:
+      - "v*"
 
 jobs:
+  push_to_registries:
+    name: Push Docker image to multiple registries
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - dockerfile: ./Dockerfile
+            image: ghcr.io/pacholoamit/pachtop-landing-page
+            context: .
+
+  permissions:
+      packages: write
+      contents: read
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -25,17 +40,31 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GHCR_PAT }}
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          labels: |
+            org.opencontainers.image.title=pachtop-landing-page
+            org.opencontainers.image.description=Pachtop Landing page
+            org.opencontainers.image.vendor=Pacholo Amit
+            org.opencontainers.image.licenses=MIT
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern=v{{version}}
+            type=semver,pattern=v{{major}}.{{minor}}
+          flavor: |
+            latest=true
+          images: ${{ matrix.image }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ${{ matrix.context }}
+        file: ${{ matrix.dockerfile }}
         push: true
-        tags: |
-          ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:latest
-          ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:${{ github.sha }}
-        outputs: |
-          name=ghcr.io/${{ github.repository_owner }}/pachtop-landing-page:${{ github.sha }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
 
     - name: Post image details
       run: echo "Docker image published successfully!"
