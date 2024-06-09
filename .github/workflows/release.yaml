@@ -51,8 +51,8 @@ jobs:
             org.opencontainers.image.licenses=MIT
           tags: |
             type=ref,event=branch
-            type=semver,pattern=v{{version}}
-            type=semver,pattern=v{{major}}.{{minor}}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
           flavor: |
             latest=true
           images: ${{ matrix.image }}
