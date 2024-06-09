@@ -9,7 +9,7 @@ export default defineAppConfig({
       youtube: "@pacholoamit",
       linkedin: {
         label: "Pacholo Amit",
-        icon: "linkedin",
+        icon: "fa6-brands:linkedin-in",
         href: "https://www.linkedin.com/in/pacholo-amit/",
       },
     },
@@ -31,6 +31,14 @@ export default defineAppConfig({
     },
     footer: {
       credits: false,
+      textLinks: [
+        {
+          text: "Built with ❤️ by Pacholo Amit",
+          href: "https://www.pacholoamit.com",
+          rel: "noopener",
+          target: "_blank",
+        },
+      ],
     },
     header: {
       logo: true,
