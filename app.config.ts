@@ -2,7 +2,7 @@
 export default defineAppConfig({
   docus: {
     title: "Pachtop",
-    description: `Pachtop - a more modern system monitor. Pachtop is a lightweight, performant, and opensource system monitor that provides real-time monitoring of your system's performance, application monitoring, and detailed system information. Built with Rust and Tauri`,
+    description: `Pachtop - a more modern system monitor. Pachtop is a lightweight, performant, and opensource system monitor that provides real-time monitoring of your system's performance, application monitoring, and detailed system information`,
     url: "https://pachtop.com",
     socials: {
       github: "pacholoamit/pachtop",
