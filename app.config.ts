@@ -47,4 +47,7 @@ export default defineAppConfig({
       fluid: true,
     },
   },
+  umami: {
+    version: 2,
+  },
 });
